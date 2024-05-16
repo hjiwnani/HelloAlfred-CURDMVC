@@ -11,6 +11,13 @@ pool:
 
 steps:
 - script: echo Hello, world!
+- task: AzureFunctionApp@2
+  inputs:
+    connectedServiceNameARM: 'Microsoft Azure Sponsorship (0b85fa5b-f7d4-49de-8a4e-3fe85234f9c5)'
+    appType: 'functionApp'
+    appName: 'YAML.app'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
   displayName: 'Run a one-line script'
 
 - script: |
